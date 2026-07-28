@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     content.getAllCategories(),
   ]);
 
-  const staticPaths = ["/", "/blog", "/about", "/privacy-policy", "/contact", "/search"];
+  const staticPaths = ["/", "/blog", "/about", "/privacy-policy", "/terms", "/contact", "/search"];
 
   return [
     ...staticPaths.map((path) => ({ url: absoluteUrl(path) })),

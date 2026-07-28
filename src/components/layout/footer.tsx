@@ -18,6 +18,9 @@ export function Footer() {
           <Link href="/privacy-policy" className="hover:text-foreground">
             {t("privacyPolicy")}
           </Link>
+          <Link href="/terms" className="hover:text-foreground">
+            {t("terms")}
+          </Link>
           <ThemeToggle />
         </div>
       </Container>

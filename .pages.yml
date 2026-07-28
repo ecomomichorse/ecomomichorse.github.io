@@ -45,6 +45,17 @@ content:
       - { name: updatedAt, label: 更新日期, type: date }
       - { name: body, label: 內容, type: rich-text }
 
+  - name: terms
+    label: 服務條款
+    type: file
+    path: content/terms.mdx
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: 標題, type: string, required: true }
+      - { name: publishedAt, label: 建立日期, type: date, required: true }
+      - { name: updatedAt, label: 更新日期, type: date }
+      - { name: body, label: 內容, type: rich-text }
+
   - name: site
     label: 網站設定
     type: file

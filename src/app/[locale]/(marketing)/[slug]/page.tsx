@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { compileMdxComponent } from "@/lib/mdx";
 import { jsonLdScript, buildBreadcrumbSchema } from "@/features/seo/lib/json-ld";
 
-const STATIC_SLUGS = ["about", "privacy-policy"];
+const STATIC_SLUGS = ["about", "privacy-policy", "terms"];
 
 export function generateStaticParams() {
   return STATIC_SLUGS.map((slug) => ({ slug }));
