@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "首頁",
+    "blog": "文章",
+    "about": "關於",
+    "contact": "聯絡",
+    "search": "搜尋"
+  },
+  "footer": {
+    "privacyPolicy": "隱私權政策",
+    "rights": "保留所有權利。"
+  },
+  "home": {
+    "heroTitle": "歡迎來到你的網站",
+    "heroSubtitle": "這是一段placeholder文字，請透過 Pages CMS 修改成你自己的介紹。",
+    "latest": "最新文章",
+    "viewAllArticles": "所有文章"
+  },
+  "blog": {
+    "title": "所有文章",
+    "count": "共 {count} 篇文章",
+    "readMore": "閱讀更多",
+    "tableOfContents": "目錄",
+    "categories": "分類",
+    "tags": "標籤",
+    "share": "分享文章",
+    "linkCopied": "連結已複製！"
+  },
+  "taxonomy": {
+    "tagTitle": "標籤:{tag}",
+    "categoryTitle": "分類:{category}"
+  },
+  "contact": {
+    "title": "聯絡",
+    "description": "有想說的話，歡迎透過表單與我聯繫。",
+    "cta": "前往聯絡表單"
+  },
+  "search": {
+    "placeholder": "搜尋文章...",
+    "noResults": "找不到相關結果"
+  },
+  "theme": {
+    "light": "切換為淺色模式",
+    "dark": "切換為深色模式"
+  },
+  "consent": {
+    "message": "本站使用 Cookie 來了解網站使用狀況，協助我們持續改善內容。",
+    "accept": "接受",
+    "reject": "拒絕"
+  },
+  "notFound": {
+    "title": "找不到這個頁面",
+    "description": "這個連結可能已經失效，或者頁面被移動了。",
+    "backHome": "回到首頁"
+  },
+  "error": {
+    "title": "發生了一點問題",
+    "description": "請稍後再試一次。",
+    "retry": "再試一次"
+  }
+}
