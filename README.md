@@ -78,7 +78,7 @@ This is the entire client-facing flow. It assumes the client has already been in
 
 **What the client needs:**
 - A GitHub account (free) — https://github.com/signup
-- A Vercel account (free) — can sign up using the same GitHub account in the same step
+- A Vercel account (free) — Sign up using the same GitHub account in the same step
 
 **Steps:**
 
