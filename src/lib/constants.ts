@@ -24,4 +24,8 @@ export const siteConfig = {
    * Supported range is 1–6 (H1–H6); defaults to 3 (H1–H3) when unset.
    */
   tocMaxDepth: 3,
+  /**
+   * Number of articles shown in the "latest" section on the homepage.
+   */
+  homepageLatestArticlesLimit: site.homepageLatestArticlesLimit,
 } as const;

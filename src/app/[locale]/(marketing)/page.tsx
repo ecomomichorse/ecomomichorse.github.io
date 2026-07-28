@@ -5,6 +5,7 @@ import { ArticleList } from "@/features/blog/components/article-list";
 import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { buildMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/constants";
 
 export async function generateMetadata() {
   const t = await getTranslations("home");
@@ -19,7 +20,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
-  const latest = await content.getLatestArticles(3);
+  const latest = await content.getLatestArticles(siteConfig.homepageLatestArticlesLimit);
 
   return (
     <Container className="max-w-5xl py-16">
