@@ -42,7 +42,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} suppressHydrationWarning className={`${notoSansTC.variable} ${inter.variable}`}>
+    <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth" className={`${notoSansTC.variable} ${inter.variable}`}>
       <head>
         <Script id="theme-init" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: themeScript }} />
         <Script
