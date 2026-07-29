@@ -10,6 +10,7 @@ export const siteConfig = {
   name: site.name,
   url: env.NEXT_PUBLIC_SITE_URL,
   description: site.description,
+  heroImage: site.heroImage || undefined,
   locale: "zh-TW",
   author: {
     name: site.author.name,

@@ -64,6 +64,7 @@ content:
     fields:
       - { name: name, label: 網站名稱, type: string, required: true }
       - { name: description, label: 網站描述, type: text, required: true }
+      - { name: heroImage, label: 首頁 Hero 圖片（不設定則不顯示圖片）, type: image }
       - name: author
         label: 作者
         type: object

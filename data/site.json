@@ -1,6 +1,7 @@
 {
   "name": "我的網站",
   "description": "這是一段介紹網站的 placeholder 文字，請替換成你自己的內容。",
+  "heroImage": "/images/hero.jpg",
   "author": {
     "name": "你的名字",
     "bio": "在這裡簡單介紹一下自己。"
