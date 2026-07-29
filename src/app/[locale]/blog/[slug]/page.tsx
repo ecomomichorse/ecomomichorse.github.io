@@ -4,6 +4,7 @@ import Script from "next/script";
 import { setRequestLocale } from "next-intl/server";
 import { content } from "@/content";
 import { Container } from "@/components/layout/container";
+import { CategoryList } from "@/features/blog/components/category-list";
 import { ShareArticle } from "@/features/blog/components/share-article";
 import { TableOfContents } from "@/features/blog/components/table-of-contents";
 import { TagList } from "@/features/blog/components/tag-list";
@@ -75,7 +76,7 @@ export default async function ArticlePage({
             ` · 更新於 ${new Date(article.updatedAt).toLocaleDateString("zh-TW")}`}
         </p>
         <div className="mt-4">
-          <TagList tags={article.tags} categories={article.categories} />
+          <CategoryList categories={article.categories} />
         </div>
       </header>
 
@@ -89,7 +90,8 @@ export default async function ArticlePage({
         <MDXContent />
       </div>
 
-      <div className="mt-12 border-t border-border pt-8 text-center">
+      <div className="mt-12 flex flex-col gap-6 border-t border-border pt-8 text-center">
+        <TagList tags={article.tags} />
         <ShareArticle title={article.title} url={`${siteConfig.url}/blog/${slug}`} />
       </div>
     </Container>
