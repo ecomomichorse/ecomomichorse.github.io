@@ -24,17 +24,12 @@
     "tableOfContents": "目錄",
     "categories": "分類",
     "tags": "標籤",
-    "share": "分享文章",
+    "share": "分享",
     "linkCopied": "連結已複製！"
   },
   "taxonomy": {
     "tagTitle": "標籤:{tag}",
     "categoryTitle": "分類:{category}"
-  },
-  "contact": {
-    "title": "聯絡",
-    "description": "有想說的話，歡迎透過表單與我聯繫。",
-    "cta": "前往聯絡表單"
   },
   "search": {
     "placeholder": "搜尋文章...",
