@@ -9,7 +9,8 @@ import { TableOfContents } from "@/features/blog/components/table-of-contents";
 import { TagList } from "@/features/blog/components/tag-list";
 import { siteConfig } from "@/lib/constants";
 import { buildMetadata } from "@/lib/metadata";
-import { compileMdxComponent } from "@/lib/mdx";
+import { compileMdxComponent, mdxComponents } from "@/lib/mdx";
+import { withBasePath } from "@/lib/base-path";
 import { jsonLdScript, buildArticleSchema, buildBreadcrumbSchema } from "@/features/seo/lib/json-ld";
 
 export async function generateStaticParams() {
@@ -64,7 +65,7 @@ export default async function ArticlePage({
       <header className="mb-8">
         {article.coverImage && (
           <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg bg-muted">
-            <Image src={article.coverImage} alt={article.slug} fill className="object-cover" priority />
+            <Image src={withBasePath(article.coverImage)} alt={article.slug} fill className="object-cover" priority />
           </div>
         )}
         <h1 className="text-2xl font-semibold sm:text-3xl">{article.title}</h1>
@@ -85,7 +86,7 @@ export default async function ArticlePage({
       )}
 
       <div className="prose-content">
-        <MDXContent />
+        <MDXContent components={mdxComponents} />
       </div>
 
       <div className="mt-12 flex flex-col gap-6 border-t border-border pt-8 text-center">

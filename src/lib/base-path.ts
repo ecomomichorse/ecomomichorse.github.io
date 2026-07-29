@@ -5,3 +5,14 @@
  * asset URLs Next can't prefix automatically, like the Pagefind import.
  */
 export const BASE_PATH = "/mars";
+
+/**
+ * Prefixes a public-asset path with `BASE_PATH`. Needed anywhere `next/image`
+ * is used with `images.unoptimized: true` — unlike the optimized loader, the
+ * unoptimized one passes `src` straight through without adding `basePath`.
+ * Leaves absolute URLs (http/https) untouched.
+ */
+export function withBasePath(path: string): string {
+  if (/^https?:\/\//.test(path)) return path;
+  return `${BASE_PATH}${path.startsWith("/") ? path : `/${path}`}`;
+}

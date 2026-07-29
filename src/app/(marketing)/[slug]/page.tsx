@@ -4,7 +4,7 @@ import { content } from "@/content";
 import { Container } from "@/components/layout/container";
 import { TableOfContents } from "@/features/blog/components/table-of-contents";
 import { buildMetadata } from "@/lib/metadata";
-import { compileMdxComponent } from "@/lib/mdx";
+import { compileMdxComponent, mdxComponents } from "@/lib/mdx";
 import { jsonLdScript, buildBreadcrumbSchema } from "@/features/seo/lib/json-ld";
 
 const STATIC_SLUGS = ["about", "contact", "privacy-policy", "terms"];
@@ -61,7 +61,7 @@ export default async function StaticContentPage({
       )}
 
       <div className="prose-content">
-        <MDXContent />
+        <MDXContent components={mdxComponents} />
       </div>
     </Container>
   );

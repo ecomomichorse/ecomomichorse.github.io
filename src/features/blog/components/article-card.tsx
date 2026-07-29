@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { Article } from "@/content/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { withBasePath } from "@/lib/base-path";
 
 export function ArticleCard({ article }: { article: Article }) {
   return (
@@ -12,7 +13,7 @@ export function ArticleCard({ article }: { article: Article }) {
           className="relative block size-24 shrink-0 overflow-hidden bg-muted sm:size-28"
         >
           <Image
-            src={article.coverImage}
+            src={withBasePath(article.coverImage)}
             alt={article.slug}
             fill
             className="object-cover"

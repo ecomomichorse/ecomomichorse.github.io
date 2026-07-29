@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { buildMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/constants";
+import { withBasePath } from "@/lib/base-path";
 
 export async function generateMetadata() {
   const t = await getTranslations("home");
@@ -24,8 +25,8 @@ export default async function HomePage() {
   return (
     <Container className="max-w-5xl py-16">
       {siteConfig.heroImage ? (
-        <section className="relative mx-auto max-w-2xl overflow-hidden rounded-lg text-center">
-          <Image src={siteConfig.heroImage} alt="" fill priority className="object-cover" />
+        <section className="relative mx-auto overflow-hidden rounded-lg text-center">
+          <Image src={withBasePath(siteConfig.heroImage)} alt="" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-black/45" />
           <div className="relative px-6 py-20 sm:py-24">
             <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
