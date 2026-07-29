@@ -65,7 +65,7 @@ export default async function ArticlePage({
       />
 
       <header className="mb-8">
-        <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-2xl bg-muted">
+        <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg bg-muted">
           <Image
             src={article.coverImage || FALLBACK_COVER}
             alt=""

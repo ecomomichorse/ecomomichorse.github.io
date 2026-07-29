@@ -60,7 +60,7 @@ export function MobileNav() {
 
       {mounted && (
         <div
-          className={`fixed inset-x-0 top-(--header-height) z-30 h-[calc(100vh-var(--header-height))] w-full overflow-y-auto bg-background transition-opacity duration-200 ${
+          className={`fixed inset-x-0 top-(--header-height) z-30 h-[calc(100vh-var(--header-height))] w-full overflow-y-auto bg-background transition-opacity duration-[var(--animate-duration)] ${
             open ? "opacity-100" : "opacity-0"
           }`}
         >

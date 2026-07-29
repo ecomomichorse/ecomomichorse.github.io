@@ -26,7 +26,7 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <nav aria-label={t("tableOfContents")} className="rounded-2xl border border-border p-4">
+    <nav aria-label={t("tableOfContents")} className="rounded-lg border border-border p-4">
       <button
         type="button"
         aria-expanded={open}
@@ -35,7 +35,7 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
       >
         <span className="text-sm font-semibold">{t("tableOfContents")}</span>
         <ChevronDown
-          className={cn("size-4 text-muted-foreground transition-transform duration-200", open && "rotate-180")}
+          className={cn("size-4 text-muted-foreground transition-transform duration-[var(--animate-duration)]", open && "rotate-180")}
           aria-hidden="true"
         />
       </button>

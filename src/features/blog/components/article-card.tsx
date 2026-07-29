@@ -7,7 +7,7 @@ const FALLBACK_COVER = "/images/blog/_fallback.svg";
 
 export function ArticleCard({ article }: { article: Article }) {
   return (
-    <Card className="overflow-hidden transition-shadow duration-200 hover:shadow-md">
+    <Card className="overflow-hidden transition-shadow duration-[var(--animate-duration)] hover:shadow-md">
       <Link href={`/blog/${article.slug}`}>
         <div className="relative aspect-video w-full bg-muted">
           <Image

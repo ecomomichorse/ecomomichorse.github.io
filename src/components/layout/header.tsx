@@ -27,7 +27,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="text-sm text-muted-foreground transition-colors duration-[var(--animate-duration)] hover:text-foreground"
               >
                 {link.label}
               </Link>

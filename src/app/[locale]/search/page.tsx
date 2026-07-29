@@ -74,7 +74,7 @@ export default function SearchPage() {
           <li className="text-sm text-muted-foreground">{t("noResults")}</li>
         )}
         {results.map((result) => (
-          <li key={result.url} className="rounded-2xl border border-border p-4">
+          <li key={result.url} className="rounded-lg border border-border p-4">
             <a href={result.url} className="text-sm font-medium hover:text-primary">
               {result.title}
             </a>
