@@ -12,8 +12,6 @@ import { buildMetadata } from "@/lib/metadata";
 import { compileMdxComponent } from "@/lib/mdx";
 import { jsonLdScript, buildArticleSchema, buildBreadcrumbSchema } from "@/features/seo/lib/json-ld";
 
-const FALLBACK_COVER = "/images/blog/_fallback.svg";
-
 export async function generateStaticParams() {
   const articles = await content.getAllArticles();
   return articles.map((article) => ({ slug: article.slug }));
@@ -65,15 +63,11 @@ export default async function ArticlePage({
       />
 
       <header className="mb-8">
-        <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg bg-muted">
-          <Image
-            src={article.coverImage || FALLBACK_COVER}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+        {article.coverImage && (
+          <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg bg-muted">
+            <Image src={article.coverImage} alt={article.slug} fill className="object-cover" priority />
+          </div>
+        )}
         <h1 className="text-2xl font-semibold sm:text-3xl">{article.title}</h1>
         <p className="mt-2 text-sm text-muted-foreground">
           {new Date(article.publishedAt).toLocaleDateString("zh-TW")}
