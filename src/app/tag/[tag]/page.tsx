@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { content } from "@/content";
 import { Container } from "@/components/layout/container";
 import { TaxonomyList } from "@/features/taxonomy/components/taxonomy-list";
@@ -24,10 +24,9 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 export default async function TagPage({
   params,
 }: {
-  params: Promise<{ locale: string; tag: string }>;
+  params: Promise<{ tag: string }>;
 }) {
-  const { locale, tag: rawTag } = await params;
-  setRequestLocale(locale);
+  const { tag: rawTag } = await params;
   const tag = decodeURIComponent(rawTag);
   const t = await getTranslations("taxonomy");
   const items = await content.getByTag(tag);

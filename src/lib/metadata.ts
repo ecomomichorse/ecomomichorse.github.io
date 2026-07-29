@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import { getPathname } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/constants";
 
-export function absoluteUrl(pathname: string, locale: string = routing.defaultLocale) {
-  const path = getPathname({ locale, href: pathname });
-  return new URL(path, siteConfig.url).toString();
+export function absoluteUrl(pathname: string) {
+  return new URL(pathname, siteConfig.url).toString();
 }
 
 export function buildMetadata({
   title,
   description,
   pathname,
-  locale = routing.defaultLocale,
+  locale = siteConfig.locale,
   image,
 }: {
   title: string;
@@ -21,7 +18,7 @@ export function buildMetadata({
   locale?: string;
   image?: string;
 }): Metadata {
-  const url = absoluteUrl(pathname, locale);
+  const url = absoluteUrl(pathname);
   const ogImage = image ? new URL(image, siteConfig.url).toString() : undefined;
   const resolvedDescription = description ?? siteConfig.description;
 

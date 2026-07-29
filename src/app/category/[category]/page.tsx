@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { content } from "@/content";
 import { Container } from "@/components/layout/container";
 import { TaxonomyList } from "@/features/taxonomy/components/taxonomy-list";
@@ -24,10 +24,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 export default async function CategoryPage({
   params,
 }: {
-  params: Promise<{ locale: string; category: string }>;
+  params: Promise<{ category: string }>;
 }) {
-  const { locale, category: rawCategory } = await params;
-  setRequestLocale(locale);
+  const { category: rawCategory } = await params;
   const category = decodeURIComponent(rawCategory);
   const t = await getTranslations("taxonomy");
   const items = await content.getByCategory(category);

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { content } from "@/content";
 import { Container } from "@/components/layout/container";
 import { ArticleList } from "@/features/blog/components/article-list";
@@ -17,9 +17,7 @@ export async function generateMetadata() {
   });
 }
 
-export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+export default async function HomePage() {
   const t = await getTranslations("home");
   const latest = await content.getLatestArticles(siteConfig.homepageLatestArticlesLimit);
 

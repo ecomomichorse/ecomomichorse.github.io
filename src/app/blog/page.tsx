@@ -1,4 +1,4 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { content } from "@/content";
 import { Container } from "@/components/layout/container";
 import { ArticleList } from "@/features/blog/components/article-list";
@@ -9,13 +9,7 @@ export async function generateMetadata() {
   return buildMetadata({ title: t("title"), description: t("title"), pathname: "/blog" });
 }
 
-export default async function BlogIndexPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+export default async function BlogIndexPage() {
   const t = await getTranslations("blog");
   const articles = await content.getAllArticles();
 

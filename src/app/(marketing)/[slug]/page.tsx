@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { setRequestLocale } from "next-intl/server";
 import { content } from "@/content";
 import { Container } from "@/components/layout/container";
 import { TableOfContents } from "@/features/blog/components/table-of-contents";
@@ -24,10 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function StaticContentPage({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { locale, slug } = await params;
-  setRequestLocale(locale);
+  const { slug } = await params;
   if (!STATIC_SLUGS.includes(slug)) notFound();
 
   const page = await content.getStaticPageBySlug(slug);

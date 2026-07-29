@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { setRequestLocale } from "next-intl/server";
 import { content } from "@/content";
 import { Container } from "@/components/layout/container";
 import { CategoryList } from "@/features/blog/components/category-list";
@@ -33,10 +32,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticlePage({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { locale, slug } = await params;
-  setRequestLocale(locale);
+  const { slug } = await params;
   const article = await content.getArticleBySlug(slug);
   if (!article) notFound();
 
