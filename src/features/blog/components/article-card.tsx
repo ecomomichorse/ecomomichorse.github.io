@@ -21,7 +21,7 @@ export function ArticleCard({ article }: { article: Article }) {
         </Link>
       )}
       <div className="flex min-w-0 flex-1 flex-col gap-1">
-        <CardHeader className="gap-1 p-0">
+        <CardHeader className="gap-1">
           <CardTitle>
             <Link href={`/blog/${article.slug}`} className="hover:text-primary">
               {article.title}
@@ -29,7 +29,7 @@ export function ArticleCard({ article }: { article: Article }) {
           </CardTitle>
           <CardDescription className="line-clamp-1">{article.excerpt}</CardDescription>
         </CardHeader>
-        <CardContent className="p-0">
+        <CardContent>
           <time dateTime={article.updatedAt ?? article.publishedAt} className="text-xs text-muted-foreground">
             {new Date(article.updatedAt ?? article.publishedAt).toLocaleDateString("zh-TW")}
           </time>
