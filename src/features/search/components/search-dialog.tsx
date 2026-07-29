@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
 import { normalizePagefindUrl } from "@/features/search/lib/normalize-pagefind-url";
+import { BASE_PATH } from "@/lib/base-path";
 
 interface PagefindResult {
   id: string;
@@ -38,8 +39,7 @@ export function SearchDialog({ onClose }: { onClose: () => void }) {
 
     async function loadPagefind() {
       try {
-        // @ts-expect-error -- generated at build time, not present during dev/type-check
-        const mod = await import(/* webpackIgnore: true */ "/pagefind/pagefind.js");
+        const mod = await import(/* webpackIgnore: true */ `${BASE_PATH}/pagefind/pagefind.js`);
         pagefindRef.current = mod as PagefindApi;
         setReady(true);
       } catch {

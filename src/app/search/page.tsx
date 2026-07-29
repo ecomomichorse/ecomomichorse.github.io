@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/layout/container";
 import { Input } from "@/components/ui/input";
 import { normalizePagefindUrl } from "@/features/search/lib/normalize-pagefind-url";
+import { BASE_PATH } from "@/lib/base-path";
 
 interface PagefindResult {
   id: string;
@@ -26,8 +27,7 @@ export default function SearchPage() {
   useEffect(() => {
     async function loadPagefind() {
       try {
-        // @ts-expect-error -- generated at build time, not present during dev/type-check
-        const mod = await import(/* webpackIgnore: true */ "/pagefind/pagefind.js");
+        const mod = await import(/* webpackIgnore: true */ `${BASE_PATH}/pagefind/pagefind.js`);
         pagefindRef.current = mod as PagefindApi;
         setReady(true);
       } catch {

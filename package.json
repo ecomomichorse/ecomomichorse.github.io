@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently -n velite,next -c blue,magenta \"velite dev\" \"next dev\"",
-    "build": "velite build && next build && pagefind --site .next/server/app --output-path public/pagefind",
+    "build": "velite build && next build && pagefind --site out --output-path out/pagefind",
     "start": "next start",
     "lint": "eslint ."
   },
