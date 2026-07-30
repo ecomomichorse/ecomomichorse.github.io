@@ -18,6 +18,8 @@ export const siteConfig = {
     avatar: "/images/avatar.png",
   },
   socials: site.socials,
+  /** Raw MDX source for the homepage "about this blog" section; see `compileMdxSource`. */
+  aboutBlog: site.aboutBlog || undefined,
   gaId: env.NEXT_PUBLIC_GA_ID,
   /**
    * Maximum heading level included in generated tables of contents.

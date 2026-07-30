@@ -1,5 +1,10 @@
 import * as runtime from "react/jsx-runtime";
-import { run } from "@mdx-js/mdx";
+import { run, evaluate } from "@mdx-js/mdx";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
+import { YouTubeEmbed } from "@next/third-parties/google";
 import { withBasePath } from "@/lib/base-path";
 
 /**
@@ -15,6 +20,26 @@ export async function compileMdxComponent(code: string) {
 }
 
 /**
+ * For MDX fields that don't go through velite (e.g. rich-text in
+ * `data/site.json`, which is a plain JSON import, not a content collection)
+ * this compiles raw MDX source directly, with the same plugins velite.config.ts
+ * uses for content collections so rendering stays consistent site-wide.
+ */
+export async function compileMdxSource(source: string) {
+  const { default: MDXContent } = await evaluate(source, {
+    ...runtime,
+    baseUrl: import.meta.url,
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: "wrap" }],
+      [rehypePrettyCode, { theme: "github-light" }],
+    ],
+  });
+  return MDXContent;
+}
+
+/**
  * MDX authors write image paths relative to the site root (e.g.
  * `![alt](/images/foo.png)`), with no knowledge of `basePath` — this
  * prefixes them the same way `withBasePath` does for `next/image` src props.
@@ -24,16 +49,5 @@ export const mdxComponents = {
     // eslint-disable-next-line @next/next/no-img-element
     <img {...props} src={typeof src === "string" ? withBasePath(src) : src} />
   ),
-  YouTube: ({ id }: { id: string }) => (
-    <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-      <iframe
-        className="absolute inset-0 h-full w-full"
-        src={`https://www.youtube.com/embed/${id}`}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      />
-    </div>
-  ),
+  YouTube: ({ id }: { id: string }) => <YouTubeEmbed videoid={id} params="rel=0" />,
 };

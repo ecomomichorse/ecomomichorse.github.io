@@ -78,4 +78,5 @@ content:
           - { name: instagram, label: Instagram 連結, type: string }
           - { name: threads, label: Threads 連結, type: string }
           - { name: youtube, label: YouTube 連結, type: string }
+      - { name: aboutBlog, label: 首頁「關於這個部落格」區塊, type: rich-text }
       - { name: homepageLatestArticlesLimit, label: 首頁最新文章顯示筆數, type: number, required: true }

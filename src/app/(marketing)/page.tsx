@@ -8,6 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { buildMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/constants";
 import { withBasePath } from "@/lib/base-path";
+import { compileMdxSource, mdxComponents } from "@/lib/mdx";
 
 export async function generateMetadata() {
   const t = await getTranslations("home");
@@ -21,6 +22,7 @@ export async function generateMetadata() {
 export default async function HomePage() {
   const t = await getTranslations("home");
   const latest = await content.getLatestArticles(siteConfig.homepageLatestArticlesLimit);
+  const AboutBlogContent = siteConfig.aboutBlog ? await compileMdxSource(siteConfig.aboutBlog) : null;
 
   return (
     <Container className="max-w-5xl py-16">
@@ -51,6 +53,12 @@ export default async function HomePage() {
           </Link>
         </div>
       </section>
+
+      {AboutBlogContent ? (
+        <section className="prose-content mt-16 max-w-2xl">
+          <AboutBlogContent components={mdxComponents} />
+        </section>
+      ) : null}
     </Container>
   );
 }
