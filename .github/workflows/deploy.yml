@@ -37,7 +37,7 @@ jobs:
 
       - name: Build
         env:
-          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/mars
+          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
         run: pnpm build
 
       - name: Setup Pages
