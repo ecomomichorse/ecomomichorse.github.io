@@ -25,40 +25,44 @@ export default async function HomePage() {
   const AboutBlogContent = siteConfig.aboutBlog ? await compileMdxSource(siteConfig.aboutBlog) : null;
 
   return (
-    <Container className="max-w-5xl py-16">
+    <>
       {siteConfig.heroImage ? (
-        <section className="relative mx-auto overflow-hidden rounded-lg text-center">
+        <section className="relative flex h-[calc(100vh-var(--header-height)-10px)] w-full items-center overflow-hidden text-center">
           <Image src={withBasePath(siteConfig.heroImage)} alt="" fill priority className="object-cover" />
-          <div className="absolute inset-0 bg-black/45" />
-          <div className="relative px-6 py-20 sm:py-24">
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          <div className="absolute inset-0" />
+          <div className="relative mx-auto w-full max-w-5xl px-4 py-20 sm:px-6 sm:py-24">
+            <h1 className="text-left text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               {t("heroTitle")}
             </h1>
-            <p className="mt-4 text-balance text-white/90">{t("heroSubtitle")}</p>
+            <p className="mt-4 text-right text-balance text-[#bee9e7]">{t("heroSubtitle")}</p>
           </div>
         </section>
-      ) : (
-        <section className="mx-auto max-w-2xl text-center">
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t("heroTitle")}</h1>
-          <p className="mt-4 text-balance text-muted-foreground">{t("heroSubtitle")}</p>
-        </section>
-      )}
-
-      <section className="mt-16">
-        <h2 className="mb-6 text-xl font-semibold">{t("latest")}</h2>
-        <ArticleList articles={latest} />
-        <div className="mt-8 text-center">
-          <Link href="/blog" className={buttonVariants({ variant: "outline" })}>
-            {t("viewAllArticles")}
-          </Link>
-        </div>
-      </section>
-
-      {AboutBlogContent ? (
-        <section className="prose-content mt-16 max-w-2xl">
-          <AboutBlogContent components={mdxComponents} />
-        </section>
       ) : null}
-    </Container>
+
+      <Container className="max-w-5xl py-16">
+        {!siteConfig.heroImage ? (
+          <section className="mx-auto max-w-2xl text-center">
+            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t("heroTitle")}</h1>
+            <p className="mt-4 text-balance text-muted-foreground">{t("heroSubtitle")}</p>
+          </section>
+        ) : null}
+
+        <section className={siteConfig.heroImage ? undefined : "mt-16"}>
+          <h2 className="mb-6 text-xl font-semibold text-[#d8b4ac]">{t("latest")}</h2>
+          <ArticleList articles={latest} />
+          <div className="mt-8 text-center">
+            <Link href="/blog" className={buttonVariants({ variant: "outline" })}>
+              {t("viewAllArticles")}
+            </Link>
+          </div>
+        </section>
+
+        {AboutBlogContent ? (
+          <section className="prose-content mt-16 max-w-none! [&_h2]:bg-[#f0f7f9] [&_h2]:text-[#add2e1]">
+            <AboutBlogContent components={mdxComponents} />
+          </section>
+        ) : null}
+      </Container>
+    </>
   );
 }

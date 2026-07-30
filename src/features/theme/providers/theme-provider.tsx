@@ -27,9 +27,9 @@ function resolve(theme: Theme): ResolvedTheme {
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof document === "undefined") return "system";
+    if (typeof document === "undefined") return "light";
     const stored = window.localStorage.getItem("theme");
-    return stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
+    return stored === "light" || stored === "dark" || stored === "system" ? stored : "light";
   });
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
     typeof document !== "undefined"

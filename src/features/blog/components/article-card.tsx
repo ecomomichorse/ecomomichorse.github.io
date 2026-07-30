@@ -24,14 +24,14 @@ export function ArticleCard({ article }: { article: Article }) {
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <CardHeader className="gap-1">
           <CardTitle>
-            <Link href={`/blog/${article.slug}`} className="hover:text-primary">
+            <Link href={`/blog/${article.slug}`} className="text-[#73808d] hover:text-primary">
               {article.title}
             </Link>
           </CardTitle>
-          <CardDescription className="line-clamp-1">{article.excerpt}</CardDescription>
+          <CardDescription className="line-clamp-1 text-[#73808d]">{article.excerpt}</CardDescription>
         </CardHeader>
         <CardContent>
-          <time dateTime={article.updatedAt ?? article.publishedAt} className="text-xs text-muted-foreground">
+          <time dateTime={article.updatedAt ?? article.publishedAt} className="text-xs text-[#73808d]">
             {new Date(article.updatedAt ?? article.publishedAt).toLocaleDateString("zh-TW")}
           </time>
         </CardContent>
