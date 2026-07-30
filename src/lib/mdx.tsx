@@ -24,4 +24,16 @@ export const mdxComponents = {
     // eslint-disable-next-line @next/next/no-img-element
     <img {...props} src={typeof src === "string" ? withBasePath(src) : src} />
   ),
+  YouTube: ({ id }: { id: string }) => (
+    <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+      <iframe
+        className="absolute inset-0 h-full w-full"
+        src={`https://www.youtube.com/embed/${id}`}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      />
+    </div>
+  ),
 };
