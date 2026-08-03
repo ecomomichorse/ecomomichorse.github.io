@@ -10,7 +10,7 @@ export function ArticleCard({ article }: { article: Article }) {
       {article.coverImage && (
         <Link
           href={`/blog/${article.slug}`}
-          className="relative block size-24 shrink-0 overflow-hidden bg-muted sm:size-28"
+          className="relative block size-24 shrink-0 overflow-hidden rounded-lg bg-muted sm:size-28"
         >
           <Image
             src={withBasePath(article.coverImage)}

@@ -28,7 +28,14 @@ export default async function HomePage() {
     <>
       {siteConfig.heroImage ? (
         <section className="relative flex h-[calc(100vh-var(--header-height)-10px)] w-full items-center overflow-hidden text-center">
-          <Image src={withBasePath(siteConfig.heroImage)} alt="" fill priority className="object-cover" />
+          <Image
+            src={withBasePath(siteConfig.heroImage)}
+            alt={t("heroTitle")}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
           <div className="absolute inset-0" />
           <div className="relative mx-auto w-full max-w-5xl px-4 py-20 sm:px-6 sm:py-24">
             <h1 className="text-left text-3xl font-semibold tracking-tight text-white sm:text-4xl">
