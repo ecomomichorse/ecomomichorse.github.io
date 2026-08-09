@@ -38,7 +38,7 @@ export default async function HomePage() {
           />
           <div className="absolute inset-0" />
           <div className="relative mx-auto w-full max-w-5xl px-4 py-20 sm:px-6 sm:py-24">
-            <h1 className="text-left text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h1 className="text-left text-3xl font-semibold tracking-tight text-white">
               {t("heroTitle")}
             </h1>
             <p className="mt-4 text-right text-balance text-[#bee9e7]">{t("heroSubtitle")}</p>
@@ -49,7 +49,7 @@ export default async function HomePage() {
       <Container className="max-w-5xl py-16">
         {!siteConfig.heroImage ? (
           <section className="mx-auto max-w-2xl text-center">
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t("heroTitle")}</h1>
+            <h1 className="text-3xl font-semibold tracking-tight">{t("heroTitle")}</h1>
             <p className="mt-4 text-balance text-muted-foreground">{t("heroSubtitle")}</p>
           </section>
         ) : null}
